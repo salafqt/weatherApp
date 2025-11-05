@@ -1,0 +1,7 @@
+{
+  "name": "io-weather-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
