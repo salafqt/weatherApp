@@ -108,17 +108,15 @@ onMounted(async () => {
   const humidityData = data.hourly.relativehumidity_2m;
   const windSpeedData = data.hourly.windspeed_10m;
 
-  // Update current weather
   currentTemp.value = data.current_weather.temperature;
   currentCode.value = data.current_weather.weathercode;
   currentCondition.value = mapWeatherCode(data.current_weather.weathercode);
   humidity.value = humidityData[0];
   windSpeed.value = windSpeedData[0];
 
-  // Group hourly data by day
   const dailyForecast = data.daily.time.map((date, index) => {
     const hourlyData = times
-      .slice(index * 24, (index + 1) * 24) // Get 24 hours for each day
+      .slice(index * 24, (index + 1) * 24)
       .map((t, i) => ({
         time: new Date(t).toLocaleTimeString("id-ID", {
           hour: "2-digit",
@@ -134,7 +132,7 @@ onMounted(async () => {
     };
   });
 
-  forecast.value = dailyForecast; // Store the daily forecast
+  forecast.value = dailyForecast;
 });
 
 function prevDay() {
