@@ -74,7 +74,7 @@ const currentCondition = ref("Loading...");
 const currentCode = ref(0);
 const humidity = ref(0);
 const windSpeed = ref(0);
-const currentDayIndex = ref(0); // Track the current day index
+const currentDayIndex = ref(0);
 
 const selectedDate = computed(() => {
   if (forecast.value.length > 0) {
@@ -91,7 +91,7 @@ const selectedDate = computed(() => {
 
 const hourlyForecast = computed(() => {
   if (forecast.value.length > 0) {
-    return forecast.value[currentDayIndex.value].hourly; // Get hourly data for the selected day
+    return forecast.value[currentDayIndex.value].hourly;
   }
   return [];
 });
